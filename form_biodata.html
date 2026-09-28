@@ -1,11 +1,265 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplikasi Biodata Siswa - Sunset Theme</title>
+  <style>
+    /* Latar Belakang Gradasi Tema Sunset */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027 0%, #203a43 15%, #2c5364 35%, #ff7e5f 70%, #feb47b 100%);
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      padding: 40px 15px;
+      margin: 0;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    /* Kartu Utama dengan Efek Transparansi Kaca (Glassmorphism) */
+    .card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 500px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    /* Judul Tema Sunset */
+    h2 {
+      margin-top: 0;
+      color: #d35400;
+      text-align: center;
+      border-bottom: 3px solid #ff7e5f;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #2c3e50;
+      font-size: 14px;
+    }
+
+    input[type="text"], 
+    input[type="number"], 
+    input[type="tel"], 
+    select, 
+    textarea {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      background-color: #fafafa;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #ff7e5f;
+      box-shadow: 0 0 5px rgba(255, 126, 95, 0.5);
+      background-color: #fff;
+    }
+
+    /* Opsi Pilihan Jenis Kelamin (Radio Button Styling) */
+    .radio-group {
+      display: flex;
+      gap: 20px;
+      margin-top: 6px;
+      background: #fdf2e9;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px dashed #ffb088;
+    }
+
+    .radio-group label {
+      font-weight: 500;
+      cursor: pointer;
+      color: #d35400;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 0;
+    }
+
+    .radio-group input[type="radio"] {
+      accent-color: #ff7e5f; /* Warna titik radio disesuaikan dengan sunset */
+      cursor: pointer;
+    }
+
+    /* Tombol Utama (Warna Gradasi Sunset) */
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .btn-simpan {
+      background: linear-gradient(45deg, #ff7e5f, #feb47b);
+      margin-top: 10px;
+      box-shadow: 0 4px 12px rgba(255, 126, 95, 0.4);
+    }
+
+    .btn-simpan:hover {
+      background: linear-gradient(45deg, #e76f51, #f4a261);
+    }
+
+    .btn-cetak {
+      background: linear-gradient(45deg, #2a9d8f, #e9c46a);
+      box-shadow: 0 4px 12px rgba(42, 157, 143, 0.3);
+    }
+
+    .btn-kembali {
+      background-color: #6c757d;
+    }
+
+    /* Container Hasil */
+    #hasilContainer {
+      display: none;
+    }
+
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .result-table td {
+      padding: 10px 4px;
+      border-bottom: 1px solid #f2f2f2;
+      vertical-align: top;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .result-table td.label {
+      font-weight: bold;
+      color: #d35400;
+      width: 42%;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .button-group {
+        display: none;
+      }
+      .card {
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    
-</body>
-</html>
+
+  <!-- SLIDE 1: FORM INPUT BIODATA -->
+  <div id="formContainer" class="card">
+    <h2>Form Biodata Siswa</h2>
+    <form id="biodataForm">
+      
+      <!-- 1. Nama -->
+      <div class="form-group">
+        <label for="nama">1. Nama Lengkap</label>
+        <input type="text" id="nama" required placeholder="Masukkan nama lengkap">
+      </div>
+
+      <!-- 2. Alamat -->
+      <div class="form-group">
+        <label for="alamat">2. Alamat</label>
+        <textarea id="alamat" rows="3" required placeholder="Masukkan alamat lengkap"></textarea>
+      </div>
+
+      <!-- 3. Jurusan -->
+      <div class="form-group">
+        <label for="jurusan">3. Jurusan</label>
+        <select id="jurusan" required>
+          <option value="">-- Pilih Jurusan --</option>
+          <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
+          <option value="Teknik Komputer & Jaringan">Teknik Komputer & Jaringan</option>
+          <option value="Multimedia">Multimedia</option>
+          <option value="Akuntansi">Akuntansi</option>
+        </select>
+      </div>
+
+      <!-- 4. Jenis Kelamin (Pilihan Radio Button) -->
+      <div class="form-group">
+        <label>4. Jenis Kelamin</label>
+        <div class="radio-group">
+          <label><input type="radio" name="jenisKelamin" value="Laki-laki" required> Laki-laki</label>
+          <label><input type="radio" name="jenisKelamin" value="Perempuan" required> Perempuan</label>
+        </div>
+      </div>
+
+      <!-- 5. Berat Badan -->
+      <div class="form-group">
+        <label for="beratBadan">5. Berat Badan (kg)</label>
+        <input type="number" id="beratBadan" required placeholder="Contoh: 55">
+      </div>
+
+      <!-- 6. Tinggi Badan -->
+      <div class="form-group">
+        <label for="tinggiBadan">6. Tinggi Badan (cm)</label>
+        <input type="number" id="tinggiBadan" required placeholder="Contoh: 165">
+      </div>
+
+      <!-- 7. Golongan Darah -->
+      <div class="form-group">
+        <label for="golDarah">7. Golongan Darah</label>
+        <select id="golDarah" required>
+          <option value="">-- Pilih Golongan Darah --</option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="AB">AB</option>
+          <option value="O">O</option>
+        </select>
+      </div>
+
+      <!-- 8. Hobi -->
+      <div class="form-group">
+        <label for="hobi">8. Hobi</label>
+        <input type="text" id="hobi" required placeholder="Contoh: Membaca, Olahraga">
+      </div>
+
+      <!-- 9. No HP -->
+      <div class="form-group">
+        <label for="noHp">9. No HP</label>
+        <input type="tel" id="noHp" required placeholder="Contoh: 08123456789">
+      </div>
+
+      <button type="submit" class="btn-simpan">Simpan Biodata</button>
+    </form>
+  </div>
