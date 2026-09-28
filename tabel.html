@@ -6,6 +6,134 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <meta charset="UTF-8">
+    <title>Biodata Mahasiswa Vertikal</title>
+    <style>
+        /* Membuat judul rata tengah */
+        h1 {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Membuat tabel melebar 100% dan rapi */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Mengatur lebar kolom kiri (label) dan kolom kanan (isi) */
+        th {
+            width: 30%;
+            background-color: #f0d5d5; /* Warna biru tua sesuai punya kamu */
+            color: rgb(19, 11, 11);
+            text-align: left;
+            padding: 12px;
+        }
+
+        td {
+            width: 70%;
+            background-color: #f0e3e3; /* Warna biru muda sesuai punya kamu */
+            color: black;
+            padding: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>PROFIL BIODATA SISWA</h1>
+
+    <table border="3">
+        <tr>
+            <th>Field/atribut</th>
+            <th>Keterangan/hasil input</th>
+        </tr>
+        <tr>   
+            <th>Nama</th>
+            <td>M.Zaki Ar Rafif</td>
+        </tr>
+        <tr>
+            <th>Alamat</th>
+            <td>Malang kabupaten</td>
+        </tr>
+        <tr>
+            <th>Jurusan</th>
+            <td>Rekayasa Perangkat Lunak</td>
+        </tr>
+        <tr>
+            <th>Jenis Kelamin</th>
+            <td>Laki-laki</td>
+        </tr>
+        <tr>
+            <th>Tinggi Badan (cm)</th>
+            <td>165</td>
+        </tr>
+        <tr>
+            <th>Berat Badan (kg)</th>
+            <td>58</td>
+        </tr>
+        <tr>
+            <th>Hobi</th>
+            <td>Naik gunung</td>
+        </tr>
+        <tr>
+            <th>No HP</th>
+            <td>081234567890</td>
+        </tr>
+    </table>
+    <h1>PROFIL BIODATA SISWA (MERGE & SPLIT)</h1>
+
+    <table border="3">
+        <tr>
+            <!-- Colspan: menggabungkan 3 kolom untuk Judul Header -->
+            <th colspan="3">DATA LENGKAP SISWA
+            </th>
+        </tr>
+        <tr>
+            <th width="30%">Kategori</th>
+            <th width="35%">Atribut / Field</th>
+            <th width="35%">Keterangan</th>
+        </tr>
+        <tr>
+            <!-- Rowspan: menggabungkan 2 baris ke bawah untuk kategori Data Diri -->
+            <td rowspan="2" style="background-color: #f0d5d5; color:rgb(19, 11, 11);; font-weight: bold;">Data Diri</td>
+            <td>Nama</td>
+            <td>M.Zaki</td>
+        
+
+        </tr>
+        <tr>
+            <td>Alamat</td>
+            <td>Malang kabupaten</td>
+        </tr>
+        <tr>
+            <!-- Rowspan: menggabungkan 1 baris ke bawah untuk kategori Akademik -->
+            <td rowspan="1" style="background-color: #f0d5d5; color: rgb(19, 11, 11);; font-weight: bold;">Akademik</td>
+            <td>Jurusan</td>
+            <td>Rekayasa Perangkat Lunak</td>
+        </tr>
+        <tr>
+           <td rowspan="1" style="background: #f0d5d5; color:rgb(19, 11, 11);font-weight: bold;"><b>Lain-lain</b></td>
+  <td>Hobi</td>
+  <td>Naik gunung</td>
+        </tr>
+        <tr>
+        <td rowspan="4" style="background: #f0d5d5; color:rgb(19, 11, 11);font-weight: bold;"><b>Fisik & Kontak</b></td>
+  <td rowspan="2">Tinggi & Berat Badan</td>
+  <td>165 cm</td>
+</tr>
+<tr>
+  <td>58 kg</td>
+</tr>
+<tr>
+  <td>Jenis Kelamin</td>
+  <td>Laki-laki</td>
+</tr>
+<tr>
+  <td>No HP</td>
+  <td>081234567890</td>
+</tr>
+    </table>
+
 </body>
-</html>
+</html>  
