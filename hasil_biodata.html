@@ -6,6 +6,148 @@
     <title>Document</title>
 </head>
 <body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hasil Biodata Siswa</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      padding: 30px;
+    }
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+    h2 {
+      margin-top: 0;
+      color: #333;
+      text-align: center;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 10px;
+    }
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    .result-table td {
+      padding: 10px 5px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+    .result-table td.label {
+      font-weight: bold;
+      color: #555;
+      width: 40%;
+    }
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 25px;
+    }
+    button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 15px;
+      cursor: pointer;
+      color: white;
+    }
+    .btn-cetak {
+      background-color: #28a745;
+    }
+    .btn-cetak:hover {
+      background-color: #218838;
+    }
+    .btn-kembali {
+      background-color: #6c757d;
+    }
+    .btn-kembali:hover {
+      background-color: #5a6268;
+    }
+    @media print {
+      .button-group {
+        display: none;
+      }
+      body {
+        background-color: #fff;
+        padding: 0;
+      }
+      .card {
+        box-shadow: none;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Hasil Biodata Siswa</h2>
     
+    <table class="result-table">
+      <tr>
+        <td class="label">1. Nama Lengkap</td>
+        <td>: <span id="resNama"></span></td>
+      </tr>
+      <tr>
+        <td class="label">2. Alamat</td>
+        <td>: <span id="resAlamat"></span></td>
+      </tr>
+      <tr>
+        <td class="label">3. Jurusan</td>
+        <td>: <span id="resJurusan"></span></td>
+      </tr>
+      <tr>
+        <td class="label">4. Jenis Kelamin</td>
+        <td>: <span id="resJenisKelamin"></span></td>
+      </tr>
+      <tr>
+        <td class="label">5. Berat Badan</td>
+        <td>: <span id="resBeratBadan">58 kg</span></td>
+      </tr>
+      <tr>
+        <td class="label">6. Tinggi Badan</td>
+        <td>: <span id="resTinggiBadan">170 cm</span></td>
+      </tr>
+      <tr>
+        <td class="label">7. Golongan Darah</td>
+        <td>: <span id="resGolDarah">O</span></td>
+      </tr>
+      <tr>
+        <td class="label">8. Hobi</td>
+        <td>: <span id="resHobi">Membaca & Bermain Musik</span></td>
+      </tr>
+      <tr>
+        <td class="label">9. No HP</td>
+        <td>: <span id="resNoHp">081234567890</span></td>
+      </tr>
+    </table>
+
+    <div class="button-group">
+      <button class="btn-kembali" onclick="window.history.back()">Kembali</button>
+      <button class="btn-cetak" onclick="window.print()">Cetak Biodata</button>
+    </div>
+  </div>
+
 </body>
-</html>
+</html>  
